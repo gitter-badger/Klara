@@ -21,12 +21,12 @@ client.on('interactionCreate', async (interaction) => {
 	if (!command) return;
 
 	if (command) {
-        try {
+		try {
 			await command.execute(interaction);
 		} catch (error) {
-            console.error(error);
-            
-            await interaction.reply({content: 'Something went wrong!', ephemeral: true});
+			console.error(error);
+
+			await interaction.reply({ content: 'Something went wrong!', ephemeral: true });
 		}
 	}
 });
