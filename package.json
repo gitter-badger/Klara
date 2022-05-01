@@ -5,9 +5,10 @@
 	"scripts": {
 		"dev": "yarn clean && concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
 		"watch-compile": "swc src/ -w --out-dir out",
-		"watch-dev": "nodemon --watch \"out/**/*\" -e js ./out/index.js",
+		"watch-dev": "NODE_ENV=development nodemon --watch \"out/**/*\" -e js ./out/index.js",
 		"build": "clean && swc src -d out",
-		"start": "NODE_ENV=production node out/index.js",
+		"start": "node out/index.js",
+		"start:prod": "NODE_ENV=production node out/index.js",
 		"clean": "rm -rf out",
 		"deploy:prod": "NODE_ENV=production node out/deploy_commands.js",
 		"deploy:dev": "NODE_ENV=development node out/deploy_commands.js"
@@ -17,7 +18,8 @@
 		"@discordjs/rest": "^0.4.1",
 		"discord-api-types": "^0.32.0",
 		"discord.js": "^13.6.0",
-		"dotenv": "^16.0.0"
+		"dotenv": "^16.0.0",
+		"mongoose": "^6.3.1"
 	},
 	"devDependencies": {
 		"@swc/cli": "^0.1.57",
@@ -41,6 +43,9 @@
 			"unplugged": true
 		},
 		"discord.js@13.6.0": {
+			"unplugged": true
+		},
+		"mongoose@6.3.1": {
 			"unplugged": true
 		}
 	}
