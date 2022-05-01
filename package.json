@@ -1,0 +1,17 @@
+{
+	"name": "klara",
+	"packageManager": "yarn@3.0.2",
+	"scripts": {
+		"start": "nodemon ./src/index.js"
+	},
+	"dependencies": {
+		"discord.js": "^13.6.0"
+	},
+	"devDependencies": {
+		"@yarnpkg/sdks": "^3.0.0-rc.4",
+		"eslint": "^8.14.0",
+		"eslint-config-prettier": "^8.5.0",
+		"nodemon": "^2.0.16",
+		"prettier": "^2.6.2"
+	}
+}
