@@ -2,10 +2,12 @@
 	"name": "klara",
 	"packageManager": "yarn@3.0.2",
 	"scripts": {
-		"dev": "concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
-		"watch-compile": "swc src/index.js -w --out-dir out",
+		"dev": "clean && concurrently \"npm run watch-compile\" \"npm run watch-dev\"",
+		"watch-compile": "swc src/ -w --out-dir out",
 		"watch-dev": "nodemon --watch \"out/**/*\" -e js ./out/index.js",
-		"start": "NODE_ENV=production node out/index.cjs"
+		"build": "clean && swc src -d out",
+		"start": "NODE_ENV=production node out/index.js",
+		"clean": "rm -rf dist"
 	},
 	"dependencies": {
 		"discord.js": "^13.6.0",
