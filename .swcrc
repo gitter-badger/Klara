@@ -16,6 +16,12 @@
 			"topLevelAwait": true,
 			"importMeta": false
 		},
+		"minify": {
+			"compress": {
+				"unused": true
+			},
+			"mangle": true
+		},
 		"transform": null,
 		"target": "es2021",
 		"loose": false,

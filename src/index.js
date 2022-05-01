@@ -10,19 +10,19 @@ const cmdFiles = readdirSync(__dirname + '/commands');
 
 cmdFiles.forEach((file) => {
 	const command = require(`${__dirname}/commands/${file}`);
-	client.commands.set(command.name, command);
+	client.commands.set(command.data.name, command);
 });
 
 client.on('interactionCreate', async (interaction) => {
 	if (!interaction.isCommand) return;
 
-	const { command, args } = interaction;
-	const cmd = client.commands.get(command);
+	const command = client.commands.get(interaction.commandName);
 
-	if (cmd) {
+	if (!command) return;
+
+	if (command) {
         try {
-            console.log(cmd);
-			await cmd.excecute(interaction);
+			await command.execute(interaction);
 		} catch (error) {
             console.error(error);
             
